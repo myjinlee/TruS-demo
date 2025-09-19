@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Erasing Your Voice Before It’s Heard: \\ Training-free Speaker Unlearning for Zero-shot Text-to-Speech</title>
+  <title>Erasing Your Voice Before It’s Heard: Training-free Speaker Unlearning for Zero-shot Text-to-Speech</title>
 
   <!-- Bulma CSS -->
   <link rel="stylesheet"
@@ -13,6 +13,14 @@
   <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
+  <!-- Bulma Carousel CSS -->
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.24/dist/css/bulma-carousel.min.css">
+
+  <style>
+    .carousel .item { padding: 12px; }
+    audio { width: 100%; max-width: 400px; }
+  </style>
 </head>
 <body>
 
@@ -58,51 +66,76 @@
         Modern zero-shot text-to-speech (TTS) models offer unprecedented expressivity but also pose serious crime risks, as they can synthesize voices of individuals who never consented.
         Existing unlearning approaches, reliant on retraining, are costly and limited to speakers seen in the training set.
         We present TruS, a training-free speaker unlearning framework that shifts the paradigm from data deletion to inference-time control.
-        TruS steers identity-specific hidden activations to suppress target speakers while preserving other attributes (\eg, prosody and emotion).
-        Experiments on F5-TTS show that TruS effectively forgets both seen and unseen speakers without retraining, establishing a scalable safeguard for speech 
+        TruS steers identity-specific hidden activations to suppress target speakers while preserving other attributes (e.g., prosody and emotion).
+        Experiments on F5-TTS show that TruS effectively forgets both seen and unseen speakers without retraining, establishing a scalable safeguard for speech.
       </p>
     </div>
   </div>
 </section>
 
-<!-- DEMO -->
+<!-- FORGET SLIDE -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-4 has-text-centered">Audio Demo</h2>
-
-    <div class="columns">
-      <div class="column has-text-centered">
-        <p><b>Forget Reference</b></p>
-        <audio controls>
-          <source src="static/audio/sample_ref.wav" type="audio/wav">
+    <h2 class="title is-4 has-text-centered">Forget References</h2>
+    <div id="forgetSlider" class="carousel">
+      <div class="item has-text-centered">
+        <p><b>Forget #1</b></p>
+        <audio controls preload="none">
+          <source src="static/audio/forget_001.wav" type="audio/wav">
         </audio>
       </div>
-      <div class="column has-text-centered">
-        <p><b>Baseline (No Steering)</b></p>
-        <audio controls>
-          <source src="static/audio/sample_baseline.wav" type="audio/wav">
+      <div class="item has-text-centered">
+        <p><b>Forget #2</b></p>
+        <audio controls preload="none">
+          <source src="static/audio/forget_002.wav" type="audio/wav">
         </audio>
       </div>
-      <div class="column has-text-centered">
-        <p><b>Ours (Steering)</b></p>
-        <audio controls>
-          <source src="static/audio/sample_steering.wav" type="audio/wav">
+      <div class="item has-text-centered">
+        <p><b>Forget #3</b></p>
+        <audio controls preload="none">
+          <source src="static/audio/forget_003.wav" type="audio/wav">
         </audio>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="columns">
-      <div class="column has-text-centered">
-        <p><b>Remain Speaker</b></p>
-        <audio controls>
-          <source src="static/audio/remain1.wav" type="audio/wav">
-        </audio>
+<!-- RESULTS SLIDE -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-4 has-text-centered">Results (Baseline vs Ours)</h2>
+    <div id="resultSlider" class="carousel">
+      <div class="item">
+        <div class="columns is-vcentered">
+          <div class="column has-text-centered">
+            <p>Baseline</p>
+            <audio controls preload="none">
+              <source src="static/audio/caseA_baseline.wav" type="audio/wav">
+            </audio>
+          </div>
+          <div class="column has-text-centered">
+            <p>Ours</p>
+            <audio controls preload="none">
+              <source src="static/audio/caseA_ours.wav" type="audio/wav">
+            </audio>
+          </div>
+        </div>
       </div>
-      <div class="column has-text-centered">
-        <p><b>Unseen Speaker</b></p>
-        <audio controls>
-          <source src="static/audio/unseen1.wav" type="audio/wav">
-        </audio>
+      <div class="item">
+        <div class="columns is-vcentered">
+          <div class="column has-text-centered">
+            <p>Baseline</p>
+            <audio controls preload="none">
+              <source src="static/audio/caseB_baseline.wav" type="audio/wav">
+            </audio>
+          </div>
+          <div class="column has-text-centered">
+            <p>Ours</p>
+            <audio controls preload="none">
+              <source src="static/audio/caseB_ours.wav" type="audio/wav">
+            </audio>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -117,6 +150,29 @@
     </p>
   </div>
 </footer>
+
+<!-- Bulma Carousel JS -->
+<script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.24/dist/js/bulma-carousel.min.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const opts = {
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      autoplay: true,
+      pauseOnHover: true,
+      infinite: true,
+      duration: 300,
+      navigation: true,
+      pagination: true
+    };
+    if (document.querySelector('#forgetSlider')) {
+      bulmaCarousel.attach('#forgetSlider', opts);
+    }
+    if (document.querySelector('#resultSlider')) {
+      bulmaCarousel.attach('#resultSlider', opts);
+    }
+  });
+</script>
 
 </body>
 </html>
