@@ -141,13 +141,13 @@
         <h2 class="title is-3 section-title">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            우리는 F5-TTS 백본 위에 EmoSteer 방식의 <i>activation steering</i>을 적용하여, 학습 없이도 특정 화자 ID의 음색 기여를 생성 과정의
-            중간 표현에서 약화시키는 <b>언러닝</b> 프레임워크를 제안한다. 구체적으로, forget 화자 1명의 활성화와 다양한 remain 화자 활성화를
-            레이어별로 평균한 뒤, 두 평균의 차이(<em>layer-wise diff</em>)를 정규화하여 <b>steering vector</b>를 구성하고,
-            선택된 레이어·스텝 구간에 주입한다. 이로써 대상 화자와의 <span class="pill">SIM</span>을 낮추면서도
-            <span class="pill">WER</span>과 자연스러움은 유지한다. Emilia 및 LibriSpeech 평가에서, 제안 방식은
-            <i>identity suppression</i>과 <i>phonetic fidelity</i>의 균형을 달성하며, 재학습 없이도 실용적인 보호 수준을 제공한다.
-            
+            <p>
+              We propose an <i>activation steering</i> framework on top of the F5-TTS backbone, inspired by EmoSteer, to achieve speaker identity
+              unlearning without retraining. Specifically, we construct a <b>steering vector</b> by averaging activations of multiple remain speakers, 
+              subtracting them from those of a single forget speaker, and normalizing the layer-wise differences. 
+              This vector is injected into selected layers and steps during generation, thereby attenuating the contribution of the target speaker’s timbre while preserving phonetic intelligibility. 
+              Experiments on the Emilia and LibriSpeech datasets show that our method effectively reduces similarity (SIM) to the forget speaker while maintaining low WER and naturalness for remain and unseen speakers. 
+              The results demonstrate that activation steering offers a practical, training-free approach to identity suppression in zero-shot TTS.
           </p>
         </div>
       </div>
