@@ -71,7 +71,88 @@
   </div>
 </section>
 
-<!-- MODEL COMPARISON TABLE -->
+<!-- MODEL COMPARISON TABLE - forget(Emilia)-->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-4 has-text-centered section-title">Model Comparison</h2>
+    <p class="has-text-centered subnote">Forget Reference · TruS (ours) · SGU · TGU</p>
+
+    <div class="table-container">
+      <table class="table is-fullwidth is-striped is-hoverable fixed">
+        <!-- colgroup으로 첫 열 폭 고정, 나머지는 균등 -->
+        <colgroup>
+          <col class="col-label">
+          <col>
+          <col>
+          <col>
+          <col>
+        </colgroup>
+        <thead>
+          <tr>
+            <th>Case</th>
+            <th>Forbidden Reference</th>
+            <th>TruS (ours)</th>
+            <th>SGU</th>
+            <th>TGU</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Row: Case 1 -->
+          <tr>
+            <td>Case 1</td>
+            <td class="audio-cell">
+              <audio controls preload="none">
+                <source src="static/audio/case1_forbidden.wav" type="audio/wav">
+              </audio>
+            </td>
+            <td class="audio-cell">
+              <audio controls preload="none">
+                <source src="static/audio/case1_trus.wav" type="audio/wav">
+              </audio>
+            </td>
+            <td class="audio-cell">
+              <audio controls preload="none">
+                <source src="static/audio/case1_sgu.wav" type="audio/wav">
+              </audio>
+            </td>
+            <td class="audio-cell">
+              <audio controls preload="none">
+                <source src="static/audio/case1_tgu.wav" type="audio/wav">
+              </audio>
+            </td>
+          </tr>
+
+          <!-- Row: Case 2 -->
+          <tr>
+            <td>Case 2</td>
+            <td class="audio-cell">
+              <audio controls preload="none">
+                <source src="static/audio/case2_forbidden.wav" type="audio/wav">
+              </audio>
+            </td>
+            <td class="audio-cell">
+              <audio controls preload="none">
+                <source src="static/audio/case2_trus.wav" type="audio/wav">
+              </audio>
+            </td>
+            <td class="audio-cell">
+              <audio controls preload="none">
+                <source src="static/audio/case2_sgu.wav" type="audio/wav">
+              </audio>
+            </td>
+            <td class="audio-cell">
+              <audio controls preload="none">
+                <source src="static/audio/case2_tgu.wav" type="audio/wav">
+              </audio>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- MODEL COMPARISON TABLE - forbidden(libri unseen)-->
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-4 has-text-centered section-title">Model Comparison</h2>
