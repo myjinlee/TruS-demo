@@ -15,6 +15,7 @@
   <style>
     .carousel .item { padding: 12px; }
     audio { width: 100%; max-width: 420px; }
+    .subnote { margin-top: -6px; margin-bottom: 16px; color:#6b7280; }
     .has-tight { margin-bottom: .75rem; }
   </style>
 </head>
@@ -30,9 +31,7 @@
       <p class="subtitle is-6">
         MyungJin Lee<sup>*</sup>, Eunji Lee<sup>*</sup>, Jiyoung Lee<sup>+</sup>
       </p>
-      <p class="is-size-7">
-        <sup>1</sup>Ewha Womans University
-      </p>
+      <p class="is-size-7"><sup>1</sup>Ewha Womans University</p>
       <p class="is-size-7">* Corresponding author: lee.jiyoung@ewha.ac.kr</p>
 
       <div class="buttons is-centered" style="margin-top: 1rem;">
@@ -66,105 +65,137 @@
   </div>
 </section>
 
-<!-- SECTION 1: Model Comparison (Forbidden Ref / TruS / FT / SGU / TGU) -->
+<!-- 1) FORBIDDEN REFERENCE -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-4 has-text-centered">Model Comparison</h2>
-    <p class="has-text-centered has-text-grey has-tight">Forbidden Reference · TruS (ours) · FT · SGU · TGU</p>
+    <h2 class="title is-4 has-text-centered">Forbidden Reference</h2>
+    <p class="has-text-centered subnote">Reference audios of the forbidden speaker</p>
 
-    <div id="compareSlider" class="carousel">
-
-      <!-- Case 1 -->
-      <div class="item">
-        <p class="has-text-centered has-text-weight-semibold">Case 1</p>
-        <div class="columns is-variable is-4">
-          <div class="column has-text-centered">
-            <p>Forbidden Reference</p>
-            <audio controls preload="none">
-              <source src="static/audio/case1_forbidden.wav" type="audio/wav">
-            </audio>
-          </div>
-          <div class="column has-text-centered">
-            <p>TruS (ours)</p>
-            <audio controls preload="none">
-              <source src="static/audio/case1_trus.wav" type="audio/wav">
-            </audio>
-          </div>
-          <div class="column has-text-centered">
-            <p>FT</p>
-            <audio controls preload="none">
-              <source src="static/audio/case1_ft.wav" type="audio/wav">
-            </audio>
-          </div>
-          <div class="column has-text-centered">
-            <p>SGU</p>
-            <audio controls preload="none">
-              <source src="static/audio/case1_sgu.wav" type="audio/wav">
-            </audio>
-          </div>
-          <div class="column has-text-centered">
-            <p>TGU</p>
-            <audio controls preload="none">
-              <source src="static/audio/case1_tgu.wav" type="audio/wav">
-            </audio>
-          </div>
-        </div>
+    <div id="forbiddenSlider" class="carousel">
+      <div class="item has-text-centered">
+        <p class="has-text-weight-semibold has-tight">Ref #1</p>
+        <audio controls preload="none">
+          <source src="static/audio/forbidden/ref_001.wav" type="audio/wav">
+        </audio>
       </div>
 
-      <!-- Case 2 -->
-      <div class="item">
-        <p class="has-text-centered has-text-weight-semibold">Case 2</p>
-        <div class="columns is-variable is-4">
-          <div class="column has-text-centered">
-            <p>Forbidden Reference</p>
-            <audio controls preload="none">
-              <source src="static/audio/case2_forbidden.wav" type="audio/wav">
-            </audio>
-          </div>
-          <div class="column has-text-centered">
-            <p>TruS (ours)</p>
-            <audio controls preload="none">
-              <source src="static/audio/case2_trus.wav" type="audio/wav">
-            </audio>
-          </div>
-          <div class="column has-text-centered">
-            <p>FT</p>
-            <audio controls preload="none">
-              <source src="static/audio/case2_ft.wav" type="audio/wav">
-            </audio>
-          </div>
-          <div class="column has-text-centered">
-            <p>SGU</p>
-            <audio controls preload="none">
-              <source src="static/audio/case2_sgu.wav" type="audio/wav">
-            </audio>
-          </div>
-          <div class="column has-text-centered">
-            <p>TGU</p>
-            <audio controls preload="none">
-              <source src="static/audio/case2_tgu.wav" type="audio/wav">
-            </audio>
-          </div>
-        </div>
+      <div class="item has-text-centered">
+        <p class="has-text-weight-semibold has-tight">Ref #2</p>
+        <audio controls preload="none">
+          <source src="static/audio/forbidden/ref_002.wav" type="audio/wav">
+        </audio>
       </div>
 
-      <!-- 더 많은 케이스 필요 시 item 추가 -->
-      <!--
-      <div class="item"> ... Case 3 ... </div>
-      -->
-
+      <div class="item has-text-centered">
+        <p class="has-text-weight-semibold has-tight">Ref #3</p>
+        <audio controls preload="none">
+          <source src="static/audio/forbidden/ref_003.wav" type="audio/wav">
+        </audio>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- SECTION 2: Emotion Consistency -->
+<!-- 2) TRUS (OURS) -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-4 has-text-centered">TruS (ours)</h2>
+    <p class="has-text-centered subnote">Inference-time activation steering for identity unlearning</p>
+
+    <div id="trusSlider" class="carousel">
+      <div class="item has-text-centered">
+        <p class="has-text-weight-semibold has-tight">Sample #1</p>
+        <audio controls preload="none">
+          <source src="static/audio/trus/trus_001.wav" type="audio/wav">
+        </audio>
+      </div>
+
+      <div class="item has-text-centered">
+        <p class="has-text-weight-semibold has-tight">Sample #2</p>
+        <audio controls preload="none">
+          <source src="static/audio/trus/trus_002.wav" type="audio/wav">
+        </audio>
+      </div>
+
+      <div class="item has-text-centered">
+        <p class="has-text-weight-semibold has-tight">Sample #3</p>
+        <audio controls preload="none">
+          <source src="static/audio/trus/trus_003.wav" type="audio/wav">
+        </audio>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 3) SGU -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-4 has-text-centered">SGU</h2>
+    <p class="has-text-centered subnote">SGU-based unlearning results</p>
+
+    <div id="sguSlider" class="carousel">
+      <div class="item has-text-centered">
+        <p class="has-text-weight-semibold has-tight">SGU #1</p>
+        <audio controls preload="none">
+          <source src="static/audio/sgu/sgu_001.wav" type="audio/wav">
+        </audio>
+      </div>
+
+      <div class="item has-text-centered">
+        <p class="has-text-weight-semibold has-tight">SGU #2</p>
+        <audio controls preload="none">
+          <source src="static/audio/sgu/sgu_002.wav" type="audio/wav">
+        </audio>
+      </div>
+
+      <div class="item has-text-centered">
+        <p class="has-text-weight-semibold has-tight">SGU #3</p>
+        <audio controls preload="none">
+          <source src="static/audio/sgu/sgu_003.wav" type="audio/wav">
+        </audio>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 4) TGU -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-4 has-text-centered">TGU</h2>
+    <p class="has-text-centered subnote">TGU-based unlearning results</p>
+
+    <div id="tguSlider" class="carousel">
+      <div class="item has-text-centered">
+        <p class="has-text-weight-semibold has-tight">TGU #1</p>
+        <audio controls preload="none">
+          <source src="static/audio/tgu/tgu_001.wav" type="audio/wav">
+        </audio>
+      </div>
+
+      <div class="item has-text-centered">
+        <p class="has-text-weight-semibold has-tight">TGU #2</p>
+        <audio controls preload="none">
+          <source src="static/audio/tgu/tgu_002.wav" type="audio/wav">
+        </audio>
+      </div>
+
+      <div class="item has-text-centered">
+        <p class="has-text-weight-semibold has-tight">TGU #3</p>
+        <audio controls preload="none">
+          <source src="static/audio/tgu/tgu_003.wav" type="audio/wav">
+        </audio>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Emotion Consistency -->
 <section class="section">
   <div class="container is-max-desktop">
     <h2 class="title is-4 has-text-centered">Emotion Consistency</h2>
-    <p class="has-text-centered has-text-grey has-tight">Reference Emotion vs. TruS (ours)</p>
+    <p class="has-text-centered subnote">Reference Emotion vs. TruS (ours)</p>
 
     <div id="emotionSlider" class="carousel">
-
       <!-- Emotion A -->
       <div class="item">
         <p class="has-text-centered has-text-weight-semibold">Emotion A</p>
@@ -172,13 +203,13 @@
           <div class="column has-text-centered">
             <p>Reference Emotion</p>
             <audio controls preload="none">
-              <source src="static/audio/emotionA_ref.wav" type="audio/wav">
+              <source src="static/audio/emotion/emotionA_ref.wav" type="audio/wav">
             </audio>
           </div>
           <div class="column has-text-centered">
             <p>TruS (ours)</p>
             <audio controls preload="none">
-              <source src="static/audio/emotionA_trus.wav" type="audio/wav">
+              <source src="static/audio/emotion/emotionA_trus.wav" type="audio/wav">
             </audio>
           </div>
         </div>
@@ -191,21 +222,20 @@
           <div class="column has-text-centered">
             <p>Reference Emotion</p>
             <audio controls preload="none">
-              <source src="static/audio/emotionB_ref.wav" type="audio/wav">
+              <source src="static/audio/emotion/emotionB_ref.wav" type="audio/wav">
             </audio>
           </div>
           <div class="column has-text-centered">
             <p>TruS (ours)</p>
             <audio controls preload="none">
-              <source src="static/audio/emotionB_trus.wav" type="audio/wav">
+              <source src="static/audio/emotion/emotionB_trus.wav" type="audio/wav">
             </audio>
           </div>
         </div>
       </div>
 
-      <!-- 필요 시 감정 케이스 추가 -->
+      <!-- 필요 시 더 추가 -->
       <!-- <div class="item"> ... Emotion C ... </div> -->
-
     </div>
   </div>
 </section>
@@ -224,7 +254,7 @@
 <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.24/dist/js/bulma-carousel.min.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const baseOpts = {
+    const opts = {
       slidesToScroll: 1,
       slidesToShow: 1,
       autoplay: true,
@@ -234,8 +264,11 @@
       navigation: true,
       pagination: true
     };
-    bulmaCarousel.attach('#compareSlider', baseOpts);
-    bulmaCarousel.attach('#emotionSlider', baseOpts);
+    bulmaCarousel.attach('#forbiddenSlider', opts);
+    bulmaCarousel.attach('#trusSlider', opts);
+    bulmaCarousel.attach('#sguSlider', opts);
+    bulmaCarousel.attach('#tguSlider', opts);
+    bulmaCarousel.attach('#emotionSlider', opts);
   });
 </script>
 
