@@ -6,20 +6,16 @@
   <title>Erasing Your Voice Before It’s Heard: Training-free Speaker Unlearning for Zero-shot Text-to-Speech</title>
 
   <!-- Bulma CSS -->
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
   <!-- Font Awesome -->
-  <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <!-- Bulma Carousel CSS -->
-  <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.24/dist/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.24/dist/css/bulma-carousel.min.css">
 
   <style>
     .carousel .item { padding: 12px; }
-    audio { width: 100%; max-width: 400px; }
+    audio { width: 100%; max-width: 420px; }
+    .has-tight { margin-bottom: .75rem; }
   </style>
 </head>
 <body>
@@ -41,16 +37,13 @@
 
       <div class="buttons is-centered" style="margin-top: 1rem;">
         <a href="[PAPER_LINK]" class="button is-dark is-rounded">
-          <span class="icon"><i class="fas fa-file-pdf"></i></span>
-          <span>Paper</span>
+          <span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper</span>
         </a>
         <a href="[CODE_LINK]" class="button is-link is-rounded">
-          <span class="icon"><i class="fab fa-github"></i></span>
-          <span>Code</span>
+          <span class="icon"><i class="fab fa-github"></i></span><span>Code</span>
         </a>
         <a href="[SAMPLES_LINK]" class="button is-info is-rounded">
-          <span class="icon"><i class="fas fa-file-audio"></i></span>
-          <span>Samples</span>
+          <span class="icon"><i class="fas fa-file-audio"></i></span><span>Samples</span>
         </a>
       </div>
     </div>
@@ -73,70 +66,146 @@
   </div>
 </section>
 
-<!-- FORGET SLIDE -->
+<!-- SECTION 1: Model Comparison (Forbidden Ref / TruS / FT / SGU / TGU) -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-4 has-text-centered">Forget References</h2>
-    <div id="forgetSlider" class="carousel">
-      <div class="item has-text-centered">
-        <p><b>Forget #1</b></p>
-        <audio controls preload="none">
-          <source src="static/audio/forget_001.wav" type="audio/wav">
-        </audio>
+    <h2 class="title is-4 has-text-centered">Model Comparison</h2>
+    <p class="has-text-centered has-text-grey has-tight">Forbidden Reference · TruS (ours) · FT · SGU · TGU</p>
+
+    <div id="compareSlider" class="carousel">
+
+      <!-- Case 1 -->
+      <div class="item">
+        <p class="has-text-centered has-text-weight-semibold">Case 1</p>
+        <div class="columns is-variable is-4">
+          <div class="column has-text-centered">
+            <p>Forbidden Reference</p>
+            <audio controls preload="none">
+              <source src="static/audio/case1_forbidden.wav" type="audio/wav">
+            </audio>
+          </div>
+          <div class="column has-text-centered">
+            <p>TruS (ours)</p>
+            <audio controls preload="none">
+              <source src="static/audio/case1_trus.wav" type="audio/wav">
+            </audio>
+          </div>
+          <div class="column has-text-centered">
+            <p>FT</p>
+            <audio controls preload="none">
+              <source src="static/audio/case1_ft.wav" type="audio/wav">
+            </audio>
+          </div>
+          <div class="column has-text-centered">
+            <p>SGU</p>
+            <audio controls preload="none">
+              <source src="static/audio/case1_sgu.wav" type="audio/wav">
+            </audio>
+          </div>
+          <div class="column has-text-centered">
+            <p>TGU</p>
+            <audio controls preload="none">
+              <source src="static/audio/case1_tgu.wav" type="audio/wav">
+            </audio>
+          </div>
+        </div>
       </div>
-      <div class="item has-text-centered">
-        <p><b>Forget #2</b></p>
-        <audio controls preload="none">
-          <source src="static/audio/forget_002.wav" type="audio/wav">
-        </audio>
+
+      <!-- Case 2 -->
+      <div class="item">
+        <p class="has-text-centered has-text-weight-semibold">Case 2</p>
+        <div class="columns is-variable is-4">
+          <div class="column has-text-centered">
+            <p>Forbidden Reference</p>
+            <audio controls preload="none">
+              <source src="static/audio/case2_forbidden.wav" type="audio/wav">
+            </audio>
+          </div>
+          <div class="column has-text-centered">
+            <p>TruS (ours)</p>
+            <audio controls preload="none">
+              <source src="static/audio/case2_trus.wav" type="audio/wav">
+            </audio>
+          </div>
+          <div class="column has-text-centered">
+            <p>FT</p>
+            <audio controls preload="none">
+              <source src="static/audio/case2_ft.wav" type="audio/wav">
+            </audio>
+          </div>
+          <div class="column has-text-centered">
+            <p>SGU</p>
+            <audio controls preload="none">
+              <source src="static/audio/case2_sgu.wav" type="audio/wav">
+            </audio>
+          </div>
+          <div class="column has-text-centered">
+            <p>TGU</p>
+            <audio controls preload="none">
+              <source src="static/audio/case2_tgu.wav" type="audio/wav">
+            </audio>
+          </div>
+        </div>
       </div>
-      <div class="item has-text-centered">
-        <p><b>Forget #3</b></p>
-        <audio controls preload="none">
-          <source src="static/audio/forget_003.wav" type="audio/wav">
-        </audio>
-      </div>
+
+      <!-- 더 많은 케이스 필요 시 item 추가 -->
+      <!--
+      <div class="item"> ... Case 3 ... </div>
+      -->
+
     </div>
   </div>
 </section>
 
-<!-- RESULTS SLIDE -->
+<!-- SECTION 2: Emotion Consistency -->
 <section class="section">
   <div class="container is-max-desktop">
-    <h2 class="title is-4 has-text-centered">Results (Baseline vs Ours)</h2>
-    <div id="resultSlider" class="carousel">
+    <h2 class="title is-4 has-text-centered">Emotion Consistency</h2>
+    <p class="has-text-centered has-text-grey has-tight">Reference Emotion vs. TruS (ours)</p>
+
+    <div id="emotionSlider" class="carousel">
+
+      <!-- Emotion A -->
       <div class="item">
-        <div class="columns is-vcentered">
+        <p class="has-text-centered has-text-weight-semibold">Emotion A</p>
+        <div class="columns is-variable is-4">
           <div class="column has-text-centered">
-            <p>Baseline</p>
+            <p>Reference Emotion</p>
             <audio controls preload="none">
-              <source src="static/audio/caseA_baseline.wav" type="audio/wav">
+              <source src="static/audio/emotionA_ref.wav" type="audio/wav">
             </audio>
           </div>
           <div class="column has-text-centered">
-            <p>Ours</p>
+            <p>TruS (ours)</p>
             <audio controls preload="none">
-              <source src="static/audio/caseA_ours.wav" type="audio/wav">
+              <source src="static/audio/emotionA_trus.wav" type="audio/wav">
             </audio>
           </div>
         </div>
       </div>
+
+      <!-- Emotion B -->
       <div class="item">
-        <div class="columns is-vcentered">
+        <p class="has-text-centered has-text-weight-semibold">Emotion B</p>
+        <div class="columns is-variable is-4">
           <div class="column has-text-centered">
-            <p>Baseline</p>
+            <p>Reference Emotion</p>
             <audio controls preload="none">
-              <source src="static/audio/caseB_baseline.wav" type="audio/wav">
+              <source src="static/audio/emotionB_ref.wav" type="audio/wav">
             </audio>
           </div>
           <div class="column has-text-centered">
-            <p>Ours</p>
+            <p>TruS (ours)</p>
             <audio controls preload="none">
-              <source src="static/audio/caseB_ours.wav" type="audio/wav">
+              <source src="static/audio/emotionB_trus.wav" type="audio/wav">
             </audio>
           </div>
         </div>
       </div>
+
+      <!-- 필요 시 감정 케이스 추가 -->
+      <!-- <div class="item"> ... Emotion C ... </div> -->
+
     </div>
   </div>
 </section>
@@ -155,22 +224,18 @@
 <script src="https://cdn.jsdelivr.net/npm/bulma-carousel@4.0.24/dist/js/bulma-carousel.min.js"></script>
 <script>
   document.addEventListener('DOMContentLoaded', () => {
-    const opts = {
+    const baseOpts = {
       slidesToScroll: 1,
       slidesToShow: 1,
       autoplay: true,
       pauseOnHover: true,
       infinite: true,
-      duration: 300,
+      duration: 320,
       navigation: true,
       pagination: true
     };
-    if (document.querySelector('#forgetSlider')) {
-      bulmaCarousel.attach('#forgetSlider', opts);
-    }
-    if (document.querySelector('#resultSlider')) {
-      bulmaCarousel.attach('#resultSlider', opts);
-    }
+    bulmaCarousel.attach('#compareSlider', baseOpts);
+    bulmaCarousel.attach('#emotionSlider', baseOpts);
   });
 </script>
 
