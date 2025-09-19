@@ -1,1 +1,349 @@
-..
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="Identity Unlearning in Zero-shot TTS via Activation Steering">
+  <meta name="keywords" content="TTS, Unlearning, Identity Removal, Activation Steering, F5-TTS, EmoSteer">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Identity Unlearning for TTS (F5-TTS + EmoSteer)</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+  <!-- Bulma & extras -->
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/icon.png">
+
+  <!-- Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+
+  <style>
+    body { font-family: "Noto Sans", "Google Sans", sans-serif; }
+    .publication-title { font-weight: 800; }
+    .hero-teaser { border-radius: 14px; box-shadow: 0 8px 28px rgba(0,0,0,0.12); }
+    .section-title { margin-top: 0.5rem; margin-bottom: 1.0rem; }
+    .result-audio { margin-bottom: .25rem; }
+    .grid-img { width: 100%; border-radius: 10px; box-shadow: 0 6px 18px rgba(0,0,0,.10);}
+    .tag-badge { font-size: 0.8rem; }
+    .card { border-radius: 14px; box-shadow: 0 10px 28px rgba(0,0,0,.10); }
+    audio { width: 100%; }
+    .small-note { font-size: 0.9rem; color: #666; }
+    .bibtex code { font-size: 0.85rem; }
+    .pill { border:1px solid #ddd; padding:.2rem .55rem; border-radius:999px; font-size:.8rem; }
+    .is-muted { color:#6b7280; }
+    .carousel .item img { max-width: 1024px; width: 100%; border-radius: 12px; }
+    .carousel .item { padding: 0 12px; }
+    .hero.is-light { background: linear-gradient(180deg,#fafafa 0,#fff 100%); }
+    .affiliations { margin-top:.5rem; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="navbar" role="navigation" aria-label="main navigation" style="border-bottom:1px solid #eee;">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navMenu">
+      <span aria-hidden="true"></span><span aria-hidden="true"></span><span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div id="navMenu" class="navbar-menu">
+    <div class="navbar-start" style="flex-grow:1; justify-content:center;">
+      <a class="navbar-item" href="http://mmai.ewha.ac.kr/" target="_blank">
+        <span class="icon"><i class="fas fa-home"></i></span>
+      </a>
+      <a class="navbar-item" href="#abstract">Abstract</a>
+      <a class="navbar-item" href="#method">Method</a>
+      <a class="navbar-item" href="#demos">Demos</a>
+      <a class="navbar-item" href="#results">Results</a>
+      <a class="navbar-item" href="#bibtex">BibTeX</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-3 publication-title">
+            Forgetting A Voice at Inference: Identity Unlearning for Zero-Shot TTS via Activation Steering
+          </h1>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="http://mmai.ewha.ac.kr/">Jiyoung Lee</a><sup>1*</sup>&emsp;
+              <a href="#">[Co-author 2]</a><sup>2</sup>&emsp;
+              <a href="#">[Co-author 3]</a><sup>3</sup>&emsp;
+              <a href="#">[Co-author 4]</a><sup>4</sup>
+            </span>
+          </div>
+
+          <div class="is-size-6 affiliations">
+            <sup>1</sup>Ewha Womans University&emsp;
+            <sup>2</sup>NAVER AI Lab&emsp;
+            <sup>3</sup>Princeton University&emsp;
+            <sup>4</sup>NAVER CLOUD
+          </div>
+
+          <p class="is-size-7 is-muted" style="margin-top:.35rem;">
+            * Corresponding author: lee.jiyoung@ewha.ac.kr
+          </p>
+
+          <div class="column has-text-centered" style="margin-top:1rem;">
+            <div class="publication-links">
+              <span class="link-block">
+                <a href="[PAPER_LINK]" class="external-link button is-normal is-rounded is-dark" target="_blank">
+                  <span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper</span>
+                </a>
+              </span>&ensp;
+              <span class="link-block">
+                <a href="[CODE_LINK]" class="external-link button is-normal is-rounded is-dark" target="_blank">
+                  <span class="icon"><i class="fab fa-github"></i></span><span>Code</span>
+                </a>
+              </span>&ensp;
+              <span class="link-block">
+                <a href="[DATASET_OR_DEMO_LINK]" class="external-link button is-normal is-rounded is-dark" target="_blank">
+                  <span class="icon"><i class="fas fa-file-audio"></i></span><span>Samples</span>
+                </a>
+              </span>
+            </div>
+          </div>
+
+          <div class="column is-full has-text-centered" style="margin-top:1.25rem;">
+            <img class="hero-teaser" src="static/images/teaser_identity_unlearning.png" alt="teaser">
+            <p class="subtitle is-6" style="margin-top:.5rem;">
+              <b>TL;DR</b> A <span class="pill">steering vector</span> is constructed from activations of a specific <span class="pill">forget</span> speaker and multiple 
+              <span class="pill">remain</span> speakers, and injected into F5-TTS to suppress the target speaker’s timbre contribution while preserving intelligibility.
+
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABSTRACT -->
+<section class="section" id="abstract">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 section-title">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            우리는 F5-TTS 백본 위에 EmoSteer 방식의 <i>activation steering</i>을 적용하여, 학습 없이도 특정 화자 ID의 음색 기여를 생성 과정의
+            중간 표현에서 약화시키는 <b>언러닝</b> 프레임워크를 제안한다. 구체적으로, forget 화자 1명의 활성화와 다양한 remain 화자 활성화를
+            레이어별로 평균한 뒤, 두 평균의 차이(<em>layer-wise diff</em>)를 정규화하여 <b>steering vector</b>를 구성하고,
+            선택된 레이어·스텝 구간에 주입한다. 이로써 대상 화자와의 <span class="pill">SIM</span>을 낮추면서도
+            <span class="pill">WER</span>과 자연스러움은 유지한다. Emilia 및 LibriSpeech 평가에서, 제안 방식은
+            <i>identity suppression</i>과 <i>phonetic fidelity</i>의 균형을 달성하며, 재학습 없이도 실용적인 보호 수준을 제공한다.
+            
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METHOD -->
+<section class="hero is-light is-small" id="method">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered section-title">Method (F5-TTS + EmoSteer)</h2>
+      <div class="columns">
+        <div class="column is-half">
+          <figure class="image">
+            <img class="hero-teaser" src="static/images/method_pipeline.png" alt="pipeline diagram">
+          </figure>
+        </div>
+        <div class="column is-half">
+          <div class="content">
+            <ul>
+              <li><b>Activation Diff:</b> Compute layer-wise <code>forget - remain_mean</code> differences and normalize.</li>
+              <li><b>Layer/Step Selection:</b> Use cos-sim statistics to determine injection regions (early/mid/late × head/mid/tail).</li>
+              <li><b>Injection:</b> Subtract Δ to the FFN output of each selected DiT block to weaken target speaker contribution.</li>
+              <li><b>Metrics:</b> Evaluate with SIM↓, WER↓, spk-ZRF↑.</li>
+
+            </ul>
+            <p class="small-note">* 구현상 세부(스케일 α, 분산 가드, 게이트 등)는 논문/코드 레포를 참고.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEMOS (A/B BEFORE-AFTER) -->
+<section class="section" id="demos">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 section-title has-text-centered">Audio Demos (Before → After)</h2>
+
+    <!-- Example row -->
+    <div class="box card">
+      <div class="columns is-vcentered">
+        <div class="column is-3 has-text-centered">
+          <p class="tag is-light tag-badge">Ref (Forget)</p>
+          <audio class="result-audio" controls preload="none">
+            <source src="static/audio/sample1_ref_forget.wav" type="audio/wav">
+          </audio>
+        </div>
+        <div class="column is-3 has-text-centered">
+          <p class="tag is-warning is-light tag-badge">Baseline (No Steering)</p>
+          <audio class="result-audio" controls preload="none">
+            <source src="static/audio/sample1_baseline.wav" type="audio/wav">
+          </audio>
+        </div>
+        <div class="column is-3 has-text-centered">
+          <p class="tag is-info is-light tag-badge">Ours (Steering)</p>
+          <audio class="result-audio" controls preload="none">
+            <source src="static/audio/sample1_steer.wav" type="audio/wav">
+          </audio>
+        </div>
+        <div class="column is-3 has-text-centered">
+          <p class="tag is-success is-light tag-badge">ASR (WER)</p>
+          <img class="grid-img" src="static/images/asr/sample1_asr.png" alt="asr">
+        </div>
+      </div>
+    </div>
+
+    <!-- Duplicate blocks for more samples -->
+    <div class="box card">
+      <div class="columns is-vcentered">
+        <div class="column is-3 has-text-centered">
+          <p class="tag is-light tag-badge">Ref (Forget)</p>
+          <audio class="result-audio" controls preload="none">
+            <source src="static/audio/sample2_ref_forget.wav" type="audio/wav">
+          </audio>
+        </div>
+        <div class="column is-3 has-text-centered">
+          <p class="tag is-warning is-light tag-badge">Baseline</p>
+          <audio class="result-audio" controls preload="none">
+            <source src="static/audio/sample2_baseline.wav" type="audio/wav">
+          </audio>
+        </div>
+        <div class="column is-3 has-text-centered">
+          <p class="tag is-info is-light tag-badge">Ours</p>
+          <audio class="result-audio" controls preload="none">
+            <source src="static/audio/sample2_steer.wav" type="audio/wav">
+          </audio>
+        </div>
+        <div class="column is-3 has-text-centered">
+          <p class="tag is-success is-light tag-badge">ASR (WER)</p>
+          <img class="grid-img" src="static/images/asr/sample2_asr.png" alt="asr">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- RESULTS CAROUSELS -->
+<section class="hero is-light is-small" id="results">
+  <div class="hero-body">
+    <div class="container">
+      <h2 class="title is-3 has-text-centered section-title">Results (Emilia & Libri)</h2>
+
+      <p class="has-text-centered small-note">Sample for SIM-F reduction and WER retain example. </p>
+      <div id="carousel-sim" class="carousel results-carousel" data-autoplay="true">
+        <div class="item has-text-centered">
+          <img src="static/images/results/emilia_case1.png" alt="emilia case1">
+        </div>
+        <div class="item has-text-centered">
+          <img src="static/images/results/libri_case1.png" alt="libri case1">
+        </div>
+        <div class="item has-text-centered">
+          <img src="static/images/results/emilia_case2.png" alt="emilia case2">
+        </div>
+      </div>
+
+      <br>
+      <p class="has-text-centered small-note">Ablation:  sleect : layer/step &α </p>
+      <div id="carousel-abl" class="carousel results-carousel">
+        <div class="item has-text-centered">
+          <img src="static/images/results/ablation_layers.png" alt="ablation layers">
+        </div>
+        <div class="item has-text-centered">
+          <img src="static/images/results/ablation_steps.png" alt="ablation steps">
+        </div>
+        <div class="item has-text-centered">
+          <img src="static/images/results/ablation_alpha.png" alt="ablation alpha">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BIBTEX -->
+<section class="section bibtex" id="bibtex">
+  <div class="container content is-max-desktop">
+    <h2 class="title is-4">BibTeX</h2>
+<pre><code>@inproceedings{lee2025identity_unlearning_tts,
+  author    = {Myungjin lee, Eunji lee and Jiyoung lee},
+  title     = {Erasing Your Voice Before It’s Heard: Training-free Speaker Unlearning for Zero-shot Text-to-Speech},
+  booktitle = {Proc. ICASSP},
+  year      = {2026},
+}</code></pre>
+    <p class="small-note">* 최종 서지 정보에 맞춰 책명/연도/저자 정정.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a
+            <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">
+              Creative Commons Attribution-ShareAlike 4.0 International License
+            </a>.
+          </p>
+          <p class="small-note">
+            Built with <a href="https://bulma.io" target="_blank">Bulma</a> · Carousel by <a href="https://github.com/Wikiki/bulma-carousel" target="_blank">bulma-carousel</a>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // navbar burger
+  document.addEventListener('DOMContentLoaded', () => {
+    const $navbarBurgers = Array.prototype.slice.call(document.querySelectorAll('.navbar-burger'), 0);
+    if ($navbarBurgers.length > 0) {
+      $navbarBurgers.forEach( el => {
+        el.addEventListener('click', () => {
+          const target = el.dataset.target || 'navMenu';
+          const $target = document.getElementById(target);
+          el.classList.toggle('is-active');
+          $target.classList.toggle('is-active');
+        });
+      });
+    }
+
+    // carousels
+    const carousels = bulmaCarousel.attach('.results-carousel', {
+      slidesToScroll: 1,
+      slidesToShow: 1,
+      infinite: true,
+      autoplay: true,
+      pauseOnHover: true
+    });
+  });
+</script>
+
+</body>
+</html>
+
