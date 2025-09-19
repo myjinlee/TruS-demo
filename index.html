@@ -19,13 +19,13 @@
 <section class="hero">
   <div class="hero-body has-text-centered">
     <h1 class="title is-3 publication-title">
-      Forgetting A Voice at Inference: Identity Unlearning for Zero-Shot TTS via Activation Steering
+      Erasing Your Voice Before It’s Heard: Training-free Speaker Unlearning for Zero-shot Text-to-Speech
     </h1>
     <p class="is-size-6">
-      Jiyoung Lee<sup>1*</sup>, Co-author 2<sup>2</sup>, Co-author 3<sup>3</sup>, Co-author 4<sup>4</sup>
+      MyungJin Lee<sup>*</sup>, Eunji Lee<sup>*</sup>, Jiyoung Lee<sup>+</sup>,
     </p>
     <p class="is-size-7">
-      <sup>1</sup>Ewha Womans University · <sup>2</sup>NAVER AI Lab · <sup>3</sup>Princeton University · <sup>4</sup>NAVER CLOUD
+      <sup>1</sup>Ewha Womans University
     </p>
     <p class="is-size-7">* Corresponding author: lee.jiyoung@ewha.ac.kr</p>
     <div style="margin-top: 1rem;">
@@ -48,13 +48,11 @@
     <h2 class="title is-4 has-text-centered">Abstract</h2>
     <div class="content has-text-justified">
       <p>
-        We propose an <i>activation steering</i> framework on top of the F5-TTS backbone, inspired by EmoSteer, to achieve
-        speaker identity unlearning without retraining. Specifically, a <b>steering vector</b> is constructed from the
-        activations of a single forget speaker and multiple remain speakers, normalized, and injected into selected layers
-        and steps during inference. This suppresses the target speaker’s timbre contribution while preserving phonetic
-        intelligibility. Experiments on Emilia and LibriSpeech show effective suppression of forget speakers with minimal
-        degradation of remain and unseen speakers, demonstrating a practical, training-free approach to identity unlearning
-        in zero-shot TTS.
+        Modern zero-shot text-to-speech (TTS) models offer unprecedented expressivity but also pose serious crime risks, as they can synthesize voices of individuals who never consented.
+        Existing unlearning approaches, reliant on retraining, are costly and limited to speakers seen in the training set.
+        We present Trus, a training-free speaker unlearning framework that shifts the paradigm from data deletion to inference-time control.
+        Trus steers identity-specific hidden activations to suppress target speakers while preserving other attributes (\eg, prosody and emotion).
+        Experiments on F5-TTS show that TruS effectively forgets both seen and unseen speakers without retraining, establishing a scalable safeguard for speech synthesis.
       </p>
     </div>
   </div>
